@@ -1,4 +1,3 @@
-// var board = [["X", "O", "X"], ["X", "X", "X"], ["X", "X", "O"]];
 var board = [["", "", ""], ["", "", ""], ["", "", ""]];
 var boardElm = document.getElementById("tic-tac-toe-div");
 var gameStatusElm = document.getElementById("game-status")
@@ -31,7 +30,6 @@ function createSpaceButton(spaceMove, i, j) {
   button.innerHTML += spaceMove;
   button.addEventListener("click", spaceButtonClick);
   button.position = [i, j];
-  // button.onclick = spaceButtonClick;
   return button;
 }
 
@@ -51,9 +49,8 @@ function spaceButtonClick() {
       inWinState = true;
     }
     // Update current player
-    currPlayerIndex = (currPlayerIndex === 0) ? 1 : 0;
-    // if (currPlayerIndex === 0) currPlayerIndex = 1;
-    // else currPlayerIndex = 0;
+    if (currPlayerIndex === 0) currPlayerIndex = 1;
+    else currPlayerIndex = 0;
     gameStatusElm.innerHTML = "Current player: " + players[currPlayerIndex];
   }
 }
